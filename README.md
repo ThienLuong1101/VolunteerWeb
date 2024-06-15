@@ -1,9 +1,15 @@
-# Template Repository for COMP SCI 2207/7207 Web & Database Computing (2023 Semester 1)
+This website is run in localhost. So you have to setup your database and server.
 
-Contains environment files for WDC 2023. Copy this template for a general sandbox.
+Stage 1:
+1.npm init -y (setup)
+2.npm install 
+3.npm start
+website displayed on localhost (you good here)
 
-Auto commit/push/sync to Github is disabled by default in this template repository.
-Enable the GitDoc extension to use this fucntionality (either in your VSCode settings, or in the Dev Container settings)
+Stage 2:
+service mysql start
+MySQL < database.sql (initialise database)
+MySQL (run database)
 
 Installing NPM:
 npm init -y
