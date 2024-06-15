@@ -1,0 +1,33 @@
+{
+  "name": "24s1-wdc-ug-group-79",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "axios": "^1.6.8",
+    "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.2",
+    "cookie-parser": "~1.4.4",
+    "crypto": "^1.0.1",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "express-session": "^1.18.0",
+    "moment": "^2.30.1",
+    "morgan": "~1.9.1",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.10.0",
+    "nodemailer": "^6.9.13",
+    "path": "^0.12.7",
+    "sequelize": "^6.37.3",
+    "uuid": "^9.0.1",
+    "vue-router": "^4.3.2"
+  },
+  "description": "Contains environment files for WDC 2023. Copy this template for a general sandbox.",
+  "main": "app.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

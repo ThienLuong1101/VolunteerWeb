@@ -1,0 +1,9 @@
+npm init -y
+npm install express mysql2 nodemailer body-parser
+npm install nodemailer
+npm install express express-session bcryptjs
+npm install bcrypt
+npm install express-session
+npm install uuid
+npm install path
+npm install moment
