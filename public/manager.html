@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>manager</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <link href="./stylesheets/manager.css" rel="stylesheet">
+    <link href="./stylesheets/profile.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <!-- Google Icons Link -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0">
+</head>
+
+<body>
+    <div class="alert" id="alertMessage" style="display: none;">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        <strong>Notification!</strong> Your request is successfully
+    </div>
+    <div id="app">
+        <!-- Include app-header component and pass activeLink as a prop -->
+        <!-- <section class="headerbg">
+            <header id="pageHeader"><span class="Title">TELT Foundation</span></header>
+
+            <nav id="menu">
+
+                <ul class="nav__links">
+                    <li class="Home hideOnMobile" @click="setActive('Home')" :class="{ active: activeLink === 'Home' }">HOME</li>
+                    <li class="Members hideOnMobile" @click="setActive('Members')" :class="{ active: activeLink === 'Members' }">MEMBERS</li>
+                    <li class="Management hideOnMobile" @click="setActive('Management')" :class="{ active: activeLink === 'Management' }">MANAGEMENT</li>
+                    <li class="menu-button" > <div class="contain_dropdown">
+                        <div class="dropdown" >
+                            <button type="button" class="dropbtn-menu dropdown-button"><svg xmlns="http://www.w3.org/2000/svg" height="50" viewBox="0 96 960 960" width="50"><path d="M120 816v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z"/></svg>
+                            </button>
+                            <div class="dropdown-content-menu">
+                            <a href="#" class="Home" @click.prevent="setActive('Home')" >HOME</a>
+                            <a class="Members" @click.prevent="setActive('Members')">MEMBERS</a>
+                            <a class="Management hideOnMobile" @click.prevent="setActive('Management')">MANAGEMENT</a>
+                            </div>
+                        </div>
+                    </div></li>
+                 </ul>
+
+                <div class="contain_dropdown" >
+                    <div class="dropdown" id="appProfile">
+                        <button type="button" class="dropbtn">PROFILE</button>
+                        <div class="dropdown-content">
+                            <a href="#" @click="setActive('Profile')">User Information</a>
+                            <a href="#" @click="setActive('Password')">Change Password</a>
+                            <a href="#" @click.prevent="logout">Logout</a>
+                        </div>
+                    </div>
+                </div>
+
+
+            </nav>
+
+
+        </section> -->
+
+
+        <header>
+            <nav class="navbar">
+                <a>
+                    <span class="Title">LTET Manager</span>
+                </a>
+
+                <ul class="menu-links">
+                    <li @click="setActive('Home')"><a>HOME</a></li>
+                    <li @click="setActive('Members')"><a href="#about">MEMEBERS</a></li>
+                    <li @click="setActive('Management')"><a href="#FAQ">MANAGEMENT</a></li>
+
+
+                    <li class="menu-button">
+                        <div class="contain_dropdown">
+
+                        </div>
+                    </li>
+                </ul>
+                <div class="contain_dropdown">
+                    <div class="dropdown" id="appProfile">
+                        <button type="button" class="dropbtn">PROFILE</button>
+                        <div class="dropdown-content">
+
+                            <a href="#" @click="setActive('Password')">Change Password</a>
+                            <a href="#" @click.prevent="logout">Logout</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- <span id="hamburger-btn" class="material-symbols-outlined">menu</span> -->
+            </nav>
+        </header>
+
+
+
+
+
+        <div v-if="activeLink == 'Home'">
+            <div class="contentWord">
+                <div class="form-box">
+                    <div class="button-box1 " :class="{ changebtn: activeUp }">
+                        <div :style="{ left: btnPosition }" class="btn1"></div>
+                        <button type="button" class="toggle-btn1 left1"
+                            @click="setAnnounce('Announcement')">Anouncement</button>
+                        <button type="button" class="toggle-btn1 right1" @click="setAnnounce('Event')">Event</button>
+                    </div>
+                </div>
+
+            </div>
+            <div class="contentAct" v-if="activeAnnounce == 'Announcement'">
+                <div class="postName">
+                    <div class="postContent">
+                        <span class="postTitle">Announcement</span>
+                    </div>
+                </div>
+
+                <div class="AnnounContain">
+                    <div class="containerPost">
+                        <form id="eventForm1" @submit.prevent="handleFormSubmit1">
+
+                            <div class="row">
+                                <div class="col-75">
+                                    <textarea id="subject" name="subject" placeholder="Write something.."
+                                        style="height:200px"></textarea>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <input type="submit" value="Submit" onclick="showAlert()">
+                                <button type="button" class="button-79" role="button" onclick="gmailAnn()">EMAIL
+                                    SUBMIT</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="postName">
+                    <div class="postContent">
+                        <span class="postTitle">Your website</span>
+                    </div>
+                </div>
+
+                <div class="AnnounContain">
+                    <div class="containerPost">
+                        <form method="POST">
+
+                            <div class="row">
+                                <p id="contentfb" class="word">Your fb page: </p>
+                                <div class="col-75">
+                                    <textarea id="subject12" name="subject"
+                                        placeholder="put your fb page link here.."></textarea>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <button type="button" class="button-12" onclick="displayContent()">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="contentAct" v-if="activeAnnounce == 'Event'">
+                <div class="postName">
+                    <div class="postContent">
+                        <span class="postTitle">Make Event</span>
+                    </div>
+                </div>
+                <div class="EventContain">
+                    <form id="eventForm" @submit.prevent="handleFormSubmit">
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="fname">Event's Name</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" id="fname" name="eventName" placeholder="Event's Name.." required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="fname">Event's Time</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="date" id="date" name="eventTime" placeholder="Select your date" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="fname">Event's Address</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="autocomplete" name="eventStreet"
+                                    placeholder="Street">
+                                <input type="text" class="form-control" id="inputCity" name="eventCity"
+                                    placeholder="City">
+                                <input type="text" class="form-control" id="inputState" name="eventState"
+                                    placeholder="State">
+                                <input type="text" class="form-control" id="inputZip" name="eventZip" placeholder="Zip">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="fname">Event's Description</label>
+                            </div>
+                            <div class="col-75">
+                                <textarea id="subject1" name="eventDescription" placeholder="Event's Description..."
+                                    style="height:200px"></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <input type="submit" value="Submit" onclick="showAlert()">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+        <div v-if="activeLink == 'Members'" class="contentWord">
+            <div class="form-box">
+                <div class="button-box1 " :class="{ changebtn: activeUp }">
+                    <div :style="{ left: btnPosition }" id="btn2"></div>
+                    <button id="left2" type="button" class="toggle-btn1"
+                        @click="setAnnounce2('Members')">Members</button>
+                    <button id="right2" type="button" class="toggle-btn1" @click="setAnnounce2('Event')">Event</button>
+                </div>
+            </div>
+
+
+
+
+            <div class="table-activity-member" v-if="activeAnnounce2 === 'Members'">
+                <table>
+                    <tr class="head-table" style="height: 60px;">
+                        <th>Member's Name</th>
+                        <th class="phone-column">Phone's Number</th>
+                        <th>Gmail</th>
+                        <th>Details</th>
+
+                    </tr>
+                    <tr v-for="user in users" :key="user.user_id" style="height: 60px;">
+                        <td>{{ user.FullName }}</td>
+                        <td class="phone-column">{{ user.Phone }}</td>
+                        <td>{{ user.Email }}</td>
+                        <td><button type="button" class="button-register">Profile</button></td>
+
+                    </tr>
+                </table>
+            </div>
+
+
+
+            <div v-if="activeAnnounce2 == 'Event'">
+                <input class="search-bar-mem" type="text" placeholder="Search Events">
+                <div class="postEvent">
+                    <div class="postContent">
+                        <span class="postTitle">Career Expo</span>
+                    </div>
+                </div>
+
+                <div class="AnnounContain" id="memberofEvents">
+                    <p class="wordE">Current Members:</p>
+                    <div class="containerPost">
+                        <table class="table-activity-member-event">
+                            <tr class="head-table">
+                                <th>Member's Name</th>
+                                <th class="phone-column">Phone's Number</th>
+                                <th>Gmail</th>
+                                <th>Details</th>
+                                <th>Action</th>
+                            </tr>
+                            <tr>
+                                <td>Tien Au</td>
+                                <td class="phone-column">000</td>
+                                <td>rightHand@gmail.com</td>
+                                <td><button type="button" class="button-register">Profile</button></td>
+                                <td><button type="button" class="button-register">Remove</button></td>
+                            </tr>
+                            <tr>
+                                <td>Edgar</td>
+                                <td class="phone-column">050555555</td>
+                                <td>Anime033@gmail.com</td>
+                                <td><button type="button" class="button-register">Profile</button></td>
+                                <td><button type="button" class="button-register">Remove</button></td>
+                            </tr>
+                        </table>
+
+                    </div>
+
+                    <p class="wordE">RSVP: </p>
+
+                    <div class="containerPost">
+                        <table class="table-activity-member-event">
+                            <tr class="head-table-RSVP">
+                                <th>Member's Name</th>
+                                <th class="phone-column">Phone's Number</th>
+                                <th>Gmail</th>
+                                <th>Details</th>
+                                <th>Action</th>
+                            </tr>
+                            <tr>
+                                <td>Luong</td>
+                                <td class="phone-column">000</td>
+                                <td>oanh@gmail.com</td>
+                                <td><button type="button" class="button-register">Profile</button></td>
+                                <td><button type="button" class="button-register">Accept</button></td>
+                            </tr>
+                            <tr>
+                                <td>Tai</td>
+                                <td class="phone-column">050555555</td>
+                                <td>nghien11@gmail.com</td>
+                                <td><button type="button" class="button-register">Profile</button></td>
+                                <td><button type="button" class="button-register">Accept</button></td>
+                            </tr>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+        <div v-if="activeLink == 'Management'">
+            <div class="contentWord">
+                <div class="form-box">
+                    <div class="button-box1 " :class="{ changebtn: activeUp }">
+                        <div :style="{ left: btnPosition }" class="btn1"></div>
+                        <button type="button" class="toggle-btn1 left1"
+                            @click="setAnnounce('Announcement')">Anouncement</button>
+                        <button type="button" class="toggle-btn1 right1" @click="setAnnounce('Event')">Event</button>
+                    </div>
+                </div>
+
+            </div>
+            <div class="content-manage-ann" v-if="activeAnnounce === 'Announcement'">
+                <p class="word">Posted Announcements:</p>
+
+                <div class="postscontent">
+                    <div class="post" v-for="post in posts.slice().reverse()" :key="post.id">
+                        <div>{{ post.subject }}</div>
+                        <div class="created-at"> created at: {{ post.created_at_time }}</div>
+                        <button type="button" class="button-55" @click="removePost(post)">Remove</button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="content-manage-ann" v-if="activeAnnounce === 'Event'">
+                <p class="word">Posted Events:</p>
+                <!-- <div  class="postName">
+                <div class="postContent">
+                    <span class="postTitle">Career Expo</span>
+                </div>
+            </div> -->
+                <div class="EventContain" v-for="event in upcomingEvents" :key="event.event_id">
+
+                    <div class="row">
+                        <div class="col-25">
+                            <label>Event's Name</label>
+                        </div>
+                        <div class="col-75">
+                            <p>{{ event.event_name }}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label>Event's Time</label>
+                        </div>
+                        <div class="col-75">
+                            <p>{{ event.event_time }}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label>Event's Address</label>
+                        </div>
+                        <div class="form-group">
+                            <p>{{ event.event_street }}, {{ event.event_city }}, {{ event.event_state }}, {{
+                                event.event_zip }}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label>Event's Description</label>
+                        </div>
+                        <div class="col-75">
+                            <p>{{ event.event_description }}</p>
+                        </div>
+                    </div>
+                    <div class="remove_event_btn">
+                        <button type="button" class="button-register" @click="delete_event(event)">Remove</button>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <!-- Include app-home component and pass activeLink as a prop -->
+
+
+        </div>
+
+
+
+
+
+
+        <div v-if="activeLink == 'Password'" class="contentWord">
+            <div class="titlebox" id="passwordtitle">
+                <div class="passwordbox">
+                    <span class="titlename">Change Password</span>
+                </div>
+            </div>
+
+            <div class="contentbox" id="passwordcontent">
+                <div class="form-group password">
+                    <label for="password">Current Password:</label>
+                    <input type="password" id="password" placeholder="Enter your password">
+                    <i class="fa-solid fa-eye"></i>
+                </div>
+                <div class="formgroup password">
+                    <label for="password">New Password:</label>
+                    <input type="password" placeholder="Enter your password">
+                    <i class="fa-solid fa-eye"></i>
+                </div>
+                <div class="formgroup password">
+                    <label for="password">Comfirm Password:</label>
+                    <input type="password" placeholder="Enter your password">
+                    <i class="fa-solid fa-eye"></i>
+                </div>
+                <div class="form-group change-btn">
+                    <input type="submit" id="changebtn1" value="Change">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+    <script src="javascripts/app.js" type="module"></script>
+    <script>
+        function displayContent() {
+            var textareaContent = document.getElementById('subject12').value;
+            document.getElementById('contentfb').innerHTML = 'Your fb page: ' + textareaContent;
+
+            // Send the URL link to the server
+            sendUrlToServer(textareaContent);
+        }
+
+        function sendUrlToServer(url) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "/save-url", true);
+            xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    console.log("URL sent successfully!");
+                }
+            };
+            xhr.send(JSON.stringify({ url: url }));
+        }
+        window.addEventListener("scroll", function () {
+            var header = document.getElementById("pageHeader");
+            var navLinks = document.querySelector(".nav__links");
+            var headerbg = document.querySelector(".headerbg");
+            var profile = document.getElementById("appProfile");
+
+            if (window.scrollY > 0) {
+                header.style.display = "none"; // Hide the title if scrolled down
+                navLinks.classList.add("scrolled");
+                headerbg.classList.add('shrink');
+                profile.classList.add("Scout");
+
+
+            } else {
+                header.style.display = "block"; // Show the title if at the top of the page
+                navLinks.classList.remove("scrolled");
+                headerbg.classList.remove('shrink');
+                profile.classList.remove("Scout");
+
+            }
+
+
+        });
+
+
+
+        var placeSearch, autocomplete;
+
+        // List all address components (corresponds to form field IDs and Google address object)
+        var componentForm = {
+            autocomplete: ['street_number', 'route'],
+            inputCity: 'locality',
+            inputState: 'administrative_area_level_1',
+            inputZip: 'postal_code',
+            inputCounty: 'administrative_area_level_2',
+            inputCountry: 'country'
+        };
+
+        // Create autocomplete object based on the autocomplete ("street") field
+        // Location type restricted to geocode
+        function initAutocomplete() {
+            autocomplete = new google.maps.places.Autocomplete(
+            /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
+                { type: ['geocode'] });
+
+            // Call fillInAddress when user selects an address from dropdown
+            autocomplete.addListener('place_changed', fillInAddress);
+        }
+
+        // Fill fields with values from Google Maps autocomplete object
+        function fillInAddress() {
+
+            // Get place data from autocomplete object
+            var place = autocomplete.getPlace();
+            console.log(place);
+
+            // Enable each field, then fill them with the corresponding value from the place object
+            for (var component in componentForm) {
+                document.getElementById(component).disabled = false;
+                document.getElementById(component).value = search(componentForm[component], place.address_components);
+            }
+
+
+            // If a street number is not found, set the field to route only.
+            if (search("street_number", place.address_components) != "") {
+                document.getElementById("autocomplete").value = search("street_number", place.address_components) + " ";
+            }
+            document.getElementById("autocomplete").value += search("route", place.address_components);
+
+            // Search the passed object for a specified address component/type and return the short_name value of the matched component/type
+            // If requested type does not exist in the placeObject, return an empty string
+            function search(type, placeObject) {
+                for (var i = 0; i < placeObject.length; i++) {
+                    if (placeObject[i].types[0] === type) {
+                        return placeObject[i].short_name;
+                    } else if (i === placeObject.length - 1) {
+                        return "";
+                    }
+                }
+            }
+        }
+
+
+        // fo
+        document.addEventListener("DOMContentLoaded", function () {
+            var submitBtn = document.getElementById("submitBtn");
+            submitBtn.addEventListener("click", function () {
+                var eventName = document.getElementById("eventName").value;
+                var eventTime = document.getElementById("eventTime").value;
+                var eventStreet = document.getElementById("eventStreet").value;
+                var eventCity = document.getElementById("eventCity").value;
+                var eventState = document.getElementById("eventState").value;
+                var eventZip = document.getElementById("eventZip").value;
+                var eventDescription = document.getElementById("eventDescription").value;
+
+                var formData = {
+                    eventName: eventName,
+                    eventTime: eventTime,
+                    eventStreet: eventStreet,
+                    eventCity: eventCity,
+                    eventState: eventState,
+                    eventZip: eventZip,
+                    eventDescription: eventDescription
+                };
+
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST", "/pass-it-on-event", true);
+                xhr.setRequestHeader("Content-Type", "application/json");
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4) {
+                        if (xhr.status === 200) {
+                            console.log("Event data sent successfully!");
+                            alert("Event data sent successfully!");
+                        } else {
+                            console.error("Failed to send event data:", xhr.status);
+                            alert("Failed to send event data. Please try again.");
+                        }
+                    }
+                };
+                xhr.send(JSON.stringify(formData));
+            });
+        });
+
+
+
+        function showAlert() {
+            // Get the alert message element
+            var alertMessage = document.getElementById("alertMessage");
+
+            // Display the alert message
+            alertMessage.style.display = "block";
+
+            // Hide the alert message after 3 seconds
+            setTimeout(function () {
+                alertMessage.style.display = "none";
+            }, 3000);
+        }
+
+        function gmailAnn() {
+            showAlert();
+            const form = document.getElementById('eventForm1');
+            const formData = new FormData(form);
+            const data = {
+                subject: formData.get('subject')
+            };
+
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', '/pass-it-on/gmail', true);
+            xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        console.log('Email submitted successfully:', xhr.responseText);
+                        // Handle success (e.g., display a success message, clear the form, etc.)
+                    } else {
+                        console.error('Error submitting email:', xhr.responseText);
+                        // Handle error (e.g., display an error message)
+                    }
+                }
+            };
+
+            xhr.send(JSON.stringify(data));
+        }
+
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HomePage</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+  <link rel="stylesheet" href="./stylesheets/main.css">
+  <link rel="stylesheet" href="./stylesheets/main2.css">
+  <!-- Google Icons Link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0">
+  <link rel="stylesheet" href="./stylesheets/emailotp.css">
+  <link rel="stylesheet" href="./stylesheets/newuser.css">
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
+
+</head>
+
+<body>
+  <header>
+    <nav class="navbar">
+      <a>
+        <span class="Title">LTET Foundation</span>
+      </a>
+      <ul class="menu-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#FAQ">FAQ</a></li>
+        <li><a href="#Event">Events</a></li>
+        <li><a href="#" id="signInBtn">Sign In</a></li>
+        <li class="join-btn"><a href="#" id="signUpBtn">Sign Up</a></li>
+        <li><span id="close-menu-btn" class="material-symbols-outlined">close</span></li>
+      </ul>
+      <span id="hamburger-btn" class="material-symbols-outlined">menu</span>
+    </nav>
+  </header>
+  <div id="ImageHome"></div>
+
+  <section class="hero-section">
+    <div class="content">
+      <div class="We_1">
+        <h1>Sustainability</h1>
+        <h2 id="SWY">START WITH YOU</h2>
+      </div>
+
+      <br>
+      <button type="button" class="button-47" id="becomeVolunteer">Be A Volunteer</button> <!-- Modified button ID -->
+    </div>
+  </section>
+
+  <section>
+    <div class="We">
+      <span class="alone_1">Alone we can do so little; together we can do so much.
+        <br><span class="alone_2">We provide a platfrom for volunteers and volunteer organzations</span>
+      </span>
+
+    </div>
+  </section>
+
+  <section id="about">
+    <!-- <div id="Image_Page_1"></div>
+  <img src="./images/Image_Page_1.jpg" alt="Image_Page_1" class="Image_Page_1_1">
+  <div class="content">
+
+    <h1 id="About">About Us</h1>
+    <p id ="Since">Since 2016, the TELT Foundation has spearheaded efforts to bring tangible improvements to the lives of communities in remote regions of Vietnam and Hong Kong.</p>
+    <p id="Mission">Our misson</p>
+    <p id="By" >By mobilizing volunteers for specific, actionable initiatives such as constructing schools, preparing meals, etc... for children and local residents, we strive to make a lasting impact where it's needed most</p>
+    <p id="Volunteers">“Volunteers are the only human beings on the face of the earth who reflect this nation’s compassion, unselfish caring, patience, and just plain loving one another.”</p> -->
+    <!-- <p id="Accomplishments">Our Accomplishments</p>
+    <ul>
+    <li id="list_2017">In May 2017, our TELT volunteers came together to construct classrooms and sanitation facilities for students in remote areas of Lai Chau, Vietnam, enhancing their access to education and hygiene.</li>
+    <li id="list_2019">In February 2019, our volunteers distributed gifts and prepared meals for children in Cao Bang, bringing joy and nourishment to the community.</li>
+    <li id="list_2020">August 2020, we supported households affected by flooding in Dien Bien, Vietnam, offering crucial aid during a time of natural disaster. </li>
+    <li id="list_2021">In July 2021, TELT volunteers provided care, prepared meals for the underprivileged and elderly in Tuen Mun, Hong Kong, demonstrating our commitment to community support across ages and borders</li>
+    <li id="list_2022">In June 2022, our team assisted in cleaning areas impacted by U Minh forest fires in Kien Giang, Vietnam, helping to restore natural habitats.</li>
+    <li id="list_2023">In October 2023, we aided families impacted by a typhoon in Yuen Long, Hong Kong, proving our dedication to disaster response.</li>
+    </ul> -->
+
+    <div class="about-section">
+      <div class="inner-container">
+        <h1>About Us</h1>
+        <p class="text">
+          Since 2016, the TELT Foundation has spearheaded efforts to bring tangible improvements to the lives of
+          communities in remote regions of Vietnam and Hong Kong.
+          <br>
+          <br>
+          Our mission:
+          <br>
+          By mobilizing volunteers for specific, actionable initiatives such as constructing schools, preparing meals,
+          etc... for children and local residents, we strive to make a lasting impact where it's needed most
+          <br>
+          <br>
+          “Volunteers are the only human beings on the face of the earth who reflect this nation’s compassion, unselfish
+          caring, patience, and just plain loving one another.”
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- <section id="FAQ">
+  <div id="Image_Page_2"></div>
+  <img src="./images/Image_Page_2.jpg" alt="Image_Page_2" class="Image_Page_2_1">
+  <div class="content">
+    <h1 id="QA">FAQ</h1>
+    <p id="If" >If you're considering joining our volunteer foundation, you're likely to have questions. Below, we address some of the most frequently asked questions to help you get started:</p>
+    <ul>
+    <li id="How">How can I become a volunteer?</li>
+    <li id="Interested">Interested individuals can apply through our website, attend an information session, or contact us directly for more details on how to join our volunteering community.</li>
+    <li id="Is">Is there an age requirement to volunteer?</li>
+    <li id="The">The age requirement varies by project. We have opportunities for all ages, but some may require volunteers to be over a certain age or have parental consent if under 18.</li>
+    <li id="Do">Do you provide training for volunteers?</li>
+    <li id="Yes">Yes, we provide necessary training and orientation for all our projects to ensure our volunteers feel prepared and confident in their roles.</li>
+    </ul>
+  </div>
+
+</section> -->
+
+
+  <section id="FAQ">
+
+    <!-- <img src="./images/Image_Page_2.jpg" alt="Image_Page_2" class="Image_Page_2_1"> -->
+    <div class="QAContainer">
+      <h1 class="title">FAQ's</h1>
+
+
+      <div class="questions-container">
+        <div class="question">
+          <button type="button">
+            <span>+ How can I become a volunteer?</span>
+            <i class="fas fa-chevron-down d-arrow"></i>
+          </button>
+          <p>Interested individuals can apply through our website, attend an information session, or contact us directly
+            for more details on how to join our volunteering community.</p>
+        </div>
+
+        <div class="question">
+          <button type="button">
+            <span>+ Is there an age requirement to volunteer?</span>
+            <i class="fas fa-chevron-down d-arrow"></i>
+          </button>
+          <p>The age requirement varies by project. We have opportunities for all ages, but some may require volunteers
+            to be over a certain age or have parental consent if under 18.</p>
+        </div>
+
+        <div class="question">
+          <button type="button">
+            <span>+ Do you provide training for volunteers?</span>
+            <i class="fas fa-chevron-down d-arrow"></i>
+          </button>
+          <p>Yes, we provide necessary training and orientation for all our projects to ensure our volunteers feel
+            prepared and confident in their roles.</p>
+        </div>
+
+        <div class="question">
+          <button type="button">
+            <span>+ How much time do I need to commit?</span>
+            <i class="fas fa-chevron-down d-arrow"></i>
+          </button>
+          <p>The time commitment varies depending on the volunteer role. We have both short-term and long-term
+            opportunities ranging from a few hours at a single event to regular weekly shifts.</p>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+
+
+  <section id="Event">
+
+    <!-- <img src="./images/Image_Page_3.jpg" alt="Image_Page_3" class="Image_Page_3_1"> -->
+
+    <!-- <h1 id="Volunteer_Image">Volunteer</h1> -->
+
+
+
+
+    <div class="Tienclass">
+      <div class="blog-post">
+        <div class="blog-post_img">
+          <img src="logo/CityOfAdelaide.png" alt="City of Adelaide">
+        </div>
+        <div class="blog-post_info">
+          <h1 class="blog-post_title">City of Adelaide</h1>
+          <table>
+            <tr class="head-table">
+              <th>Activity</th>
+              <th>Date</th>
+            </tr>
+            <tr>
+              <td>Career Expo</td>
+              <td>7:00 am 30/02/2025</td>
+            </tr>
+            <tr>
+              <td>Orientation Week</td>
+              <td>12:00 am 04/14/2024</td>
+            </tr>
+          </table>
+          <a href="#" class="blog-post_cta">Read More</a>
+        </div>
+      </div>
+
+      <div class="blog-post">
+        <div class="blog-post_img">
+          <img src="logo/You_X.png" alt="City of Adelaide">
+        </div>
+        <div class="blog-post_info">
+          <h1 class="blog-post_title">YouX</h1>
+          <table>
+            <tr class="head-table">
+              <th>Activity</th>
+              <th>Date</th>
+            </tr>
+            <tr>
+              <td>Career Expo</td>
+              <td>7:00 am 30/02/2025</td>
+            </tr>
+            <tr>
+              <td>Orientation Week</td>
+              <td>12:00 am 04/14/2024</td>
+            </tr>
+          </table>
+          <a href="#" class="blog-post_cta">Read More</a>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+
+
+  <section id="footer">
+
+    <footer>
+      <p>FELT FOUNDATION <a href="#"> Learn More</a></p>
+    </footer>
+
+  </section>
+
+
+
+
+
+  <!--Login board-->
+  <div id="app" class="container">
+    <input type="checkbox" id="check">
+    <div class="login form">
+      <p class="LoginHeader">Login</p>
+      <form id="loginForm" action="/login" method="POST" novalidate>
+        <span class="error-message" id="emailError"></span>
+        <input type="text" id="email" placeholder="Enter your email">
+        <span class="error-message" id="loginPasswordError"></span>
+        <input type="password" id="password" placeholder="Enter your password">
+        <a href="#">Forgot password?</a>
+        <input type="button" class="button" value="Login" onclick="login()">
+      </form>
+      <!-- <div class="signup">
+        <span class="signup">Don't have an account?
+         <label id="SignUpCheck">Signup</label>
+        </span>
+      </div> -->
+    </div>
+    <div class="registration form">
+      <p class="LoginHeader">Signup</p>
+      <form action="/signup" method="post">
+        <span class="error-message" id="emailError1"></span>
+        <input type="text" placeholder="Enter your email" id="signemail">
+
+
+        <div class="container-pas">
+          <div class="input-box">
+            <div class="indicator1">
+              <div class="icon-text" id="icon-text">
+                <i class="fas fa-exclamation-circle error_icon" id="icon-wa"></i>
+                <h6 id="text2"> .</h6>
+              </div>
+            </div>
+            <i class="fas fa-eye-slash show_hide" id="fa-eye-slash"></i>
+            <input spellcheck="false" type="password" placeholder="Enter password" id="inputpas">
+          </div>
+
+        </div>
+
+        <!-- <input type="password" placeholder="Create a password" id="signupPassword"> -->
+        <span class="error-message" id="passwordError"></span>
+        <input type="password" placeholder="Confirm your password" id="confirmPassword">
+        <div class="loader" id="load"></div>
+        <input type="button" class="button" value="Signup" onclick="checkEmailSignin()">
+      </form>
+
+
+
+      <!-- <div class="signup">
+        <span class="signup">Already have an account?
+         <label id="SignInCheck">Login</label>
+        </span>
+      </div> -->
+    </div>
+
+  </div>
+
+
+
+
+  <div class="form" id="otp">
+    <h1>OTP Verification</h1>
+    <p id="ans-otp"></p>
+    <span id="totext"></span>
+    <div>
+      <input type="text" id="otp_inp" placeholder="Enter the OTP (4 digits)">
+      <span class="error-message" id="otpError"></span> <!-- New span for displaying error message -->
+    </div>
+
+    <span class="signup">Didn't receive OTP? <label id="resend-otp">Send OTP code again</label></span>
+    <!-- New link for resending OTP -->
+    <button type="button" class="btn" id="otp-btn">Verify</button>
+
+  </div>
+
+  <div id="newuser">
+    <h1>Complete Sign Up</h1>
+
+    <label for="fullname">Full Name:</label><br>
+    <input type="text" id="fullname" placeholder="Please Enter Your Full Name"><br>
+
+    <label for="address">Address:</label><br>
+    <input type="text" id="address" placeholder="Please Enter Your Address"><br>
+
+    <label for="phone">Phone:</label><br>
+    <input type="tel" id="phone" pattern="[0-9]{4}-[0-9]{3}-[0-9]{3}" placeholder="Your Phone Number"><br>
+
+    <label for="date">Birth Date:</label><br>
+    <input type="date" id="date" placeholder="Select your date"><br>
+
+    <label for="gender">Gender:</label><br>
+    <select id="gender">
+      <option value="" selected disabled>Select your gender</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+      <option value="Other">Other</option>
+    </select><br>
+
+    <label for="url">Linkedln URL:</label><br>
+    <input type="text" id="url" placeholder="Enter your URL"><br>
+
+    <span class="error-message" id="infoError"></span><br>
+    <button type="button" id="submit">Submit</button>
+  </div>
+
+  <!-- Add the overlay div -->
+
+  <div class="overlay"></div>
+
+
+  <script src='./javascripts/HomeImage.js'></script>
+  <script src="./javascripts/home.js"></script>
+
+</body>
+
+</html>

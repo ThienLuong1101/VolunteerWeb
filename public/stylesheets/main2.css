@@ -1,0 +1,293 @@
+.about-section {
+    background: url(../images/pic.jpg) no-repeat left;
+    background-size: 55%;
+    background-color: #fdfdfd;
+    overflow: hidden;
+    padding: 100px 0;
+    position: relative;
+}
+
+.inner-container {
+    width: 55%;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    float: right;
+    background-color: #fdfdfd;
+    padding: 150px;
+}
+
+.inner-container h1 {
+    margin-bottom: 30px;
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.text {
+    font-size: 19px;
+    color: #545454;
+    line-height: 30px;
+    text-align: justify;
+    margin-bottom: 40px;
+}
+
+.skills {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+    font-size: 13px;
+}
+
+@media screen and (max-width:1200px) {
+    .inner-container {
+        padding: 80px;
+    }
+}
+
+@media screen and (max-width:1000px) {
+    .about-section {
+        background-size: 100%;
+        padding: 100px 40px;
+    }
+
+    .inner-container {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:600px) {
+    .about-section {
+        padding: 0;
+    }
+
+    .inner-container {
+        padding: 60px;
+    }
+}
+
+
+
+.title {
+    font-size: 50px;
+    text-align: center;
+    margin-top: 80px;
+    margin-bottom: 40px;
+    text-decoration: underline 4px;
+}
+
+.QAContainer {
+    position: relative;
+    padding-top: 120px;
+
+}
+
+.questions-container p {
+    color: white;
+}
+
+.questions-container {
+    max-width: 800px;
+    margin: 0 auto;
+
+}
+
+.question {
+    border-bottom: 1px solid #fff;
+}
+
+.question button {
+    width: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 15px;
+    border: none;
+    outline: none;
+    font-size: 22px;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.question p {
+    font-size: 22px;
+    max-height: 0;
+    opacity: 0;
+    line-height: 1.5;
+    overflow: hidden;
+    transition: all 0.6s ease;
+}
+
+.d-arrow {
+    transition: transform 0.5s ease-in;
+    color: #fff;
+}
+
+/*add this class when click*/
+.question p.show {
+    background-color: #38383B;
+    max-height: 200px;
+    opacity: 1;
+    padding: 0px 15px 30px 15px;
+}
+
+.question button .d-arrow.rotate {
+    transform: rotate(180deg);
+}
+
+
+/* .container {
+    margin-top: 100px;
+    } */
+/*
+.container h2 {
+letter-spacing: 1px;
+font-size: 50px;
+color: #6968aa;
+border: 2px dashed #0181a0;
+padding: 10px;
+text-transform: uppercase;
+border-radius: 10px;
+display: inline-block;
+cursor: pointer;
+text-align: center;
+margin-top: 90px;
+margin-left: 375px;
+} */
+
+
+footer {
+    position: relative;
+    top: 100px;
+    background-color: #333;
+    /* Background color */
+    color: white;
+    /* Text color */
+    padding: 20px;
+    /* Padding */
+    text-align: center;
+    /* Align text to center */
+}
+
+/* Link Styles */
+footer a {
+    color: white;
+    /* Link color */
+    text-decoration: none;
+    /* Remove default underline */
+}
+
+/* Link Hover Effect */
+footer a:hover {
+    text-decoration: underline;
+    /* Underline on hover */
+}
+
+
+
+@media screen and (max-width: 500px) {
+
+    th,
+    td {
+        font-size: 5px;
+
+    }
+}
+
+.search-bar {
+    width: 300px;
+    float: right;
+    padding: 6px;
+    margin-top: 8px;
+    margin-right: 16px;
+    border: 2px solid #cbc3ca;
+    font-size: 17px;
+}
+
+@media screen and (max-width: 650px) {
+    input[type=text] {
+        float: none;
+        display: block;
+        text-align: left;
+        width: 100%;
+        margin: 0;
+        padding: 14px;
+    }
+
+    input[type=text] {
+        border: 2px solid #cbc3ca;
+    }
+}
+
+
+
+
+
+
+
+
+
+/*login update*/
+
+
+
+#fa-eye-slash {
+    display: none;
+}
+
+.error-message {
+    color: red;
+}
+
+
+
+
+
+.container-pas .input-box {
+    position: relative;
+}
+
+.input-box .show_hide {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #A6A6A6;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.input-box input {
+    height: 60px;
+    width: 100%;
+    border: 2px solid #d3d3d3;
+    border-radius: 4px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+    outline: none;
+    padding: 0 50px 0 16px;
+}
+
+.container-pas .indicator1 {
+    display: none;
+}
+
+.container-pas .indicator1.active {
+    display: block;
+    font-size: 20px;
+}
+
+.indicator1 .icon-text {
+    display: flex;
+    align-items: center;
+}
+
+.icon-text1 .error_icon {
+    margin-right: 8px;
+}
+
+.icon-text1 .text2 {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
